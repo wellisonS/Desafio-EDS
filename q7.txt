@@ -1,0 +1,25 @@
+Para modelar as tabelas no banco de dados de staging para atendimentos médicos e diagnósticos, podemos utilizar uma abordagem de relacionamento de tabelas através de chaves estrangeiras. Nesse caso, teríamos duas tabelas: uma tabela para os atendimentos médicos e outra tabela para os diagnósticos.
+
+Aqui está uma proposta de modelagem para essas duas tabelas:
+
+Tabela: ATENDIMENTO
+Coluna Tipo Descrição
+id int Identificador único sequencial.
+id_paciente int Chave estrangeira para a tabela de pacientes.
+data_atendimento date Data do atendimento.
+hora_atendimento time Hora do atendimento.
+... ... Outras colunas relacionadas ao atendimento.
+
+Tabela: DIAGNOSTICO
+Coluna Tipo Descrição
+id int Identificador único sequencial.
+id_atendimento int Chave estrangeira para a tabela de atendimentos.
+codigo varchar(10) Código do diagnóstico.
+descricao varchar(100) Descrição do diagnóstico.
+... ... Outras colunas relacionadas ao diagnóstico.
+
+Na tabela ATENDIMENTO, temos uma coluna "id" como identificador único do atendimento, uma coluna "id_paciente" como chave estrangeira para referenciar o paciente relacionado ao atendimento, e outras colunas relacionadas às informações do atendimento, como data, hora, entre outras.
+
+Na tabela DIAGNOSTICO, temos uma coluna "id" como identificador único do diagnóstico, uma coluna "id_atendimento" como chave estrangeira para referenciar o atendimento ao qual o diagnóstico está relacionado, e outras colunas relacionadas às informações do diagnóstico, como código, descrição, entre outras.
+
+Essa estrutura permite que um atendimento médico possa ter vários diagnósticos relacionados a ele, estabelecendo a relação entre as tabelas através das chaves estrangeiras.
